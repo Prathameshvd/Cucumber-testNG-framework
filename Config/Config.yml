@@ -1,0 +1,17 @@
+Browser : Chrome
+ChromeDriverClassName : webdriver.chrome.driver
+ChromeDriverClassPath : D:\\Prathamesh\\Selenium\\Supported_JarFiles\\chromedriver-win64\\chromedriver.exe
+
+EdgeDriverClassName : webdriver.edge.driver
+EdgeDriverClassPath : D:\\Prathamesh\\Selenium\\Supported_JarFiles\\msedgedriver.exe
+
+Grid : NoGrid
+GridURL : http://localhost:4444/wd/hub
+
+AppURL : https://demoqa.com/login
+UserName : TestUser
+Password : TestUser@12345
+
+DBurl : jdbc:mysql://localhost:3306/nopcommerce
+DBUserName : root
+DBPassword : root
