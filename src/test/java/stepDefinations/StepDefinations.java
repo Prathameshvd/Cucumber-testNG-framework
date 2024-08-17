@@ -17,4 +17,20 @@ public class StepDefinations {
         stepDefinationImplementation.loginUser();
         System.out.println("User login to website - Completed");
     }
+
+    @Given("user click on Form")
+    public void user_click_on_form() {
+        stepDefinationImplementation.clickOnFormsTab();
+    }
+
+    @Given("user click on Practice Form")
+    public void user_click_on_practice_form() {
+        stepDefinationImplementation.clickOnPracticeFormOption();
+    }
+
+    @Given("user fill all the form and click on the submit button")
+    public void user_fill_all_the_form_and_click_on_the_submit_button() {
+        stepDefinationImplementation.fillAndSubmitForm();
+    }
+
 }
