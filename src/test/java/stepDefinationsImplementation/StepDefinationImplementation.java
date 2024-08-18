@@ -1,12 +1,15 @@
 package stepDefinationsImplementation;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageFactory.PageBookStoreApplication;
 import pageFactory.PageForms;
 import pageFactory.PageInteractions;
 import supportingClasses.ConfigLoader;
 import supportingClasses.DriverSetup;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class StepDefinationImplementation {
 
@@ -66,10 +69,11 @@ public class StepDefinationImplementation {
     }
 
     public void clickOnPracticeFormOption() {
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         PageForms.PracticeFormOption.click();
     }
 
-    public void fillAndSubmitForm() {
+    public void fillAndSubmitForm() throws InterruptedException {
         PageForms.FirstName.sendKeys("Rahul");
         PageForms.LastName.sendKeys("Desai");
         javascriptExecutor.executeScript("window.scrollBy(0,1000);");
@@ -82,6 +86,20 @@ public class StepDefinationImplementation {
         PageForms.HobbiesMusic.click();
         javascriptExecutor.executeScript("window.scrollBy(0,1000);");
         PageForms.CurrentAddress.sendKeys("Pune");
-        PageForms.State.click();
+//        PageForms.State.click();
+//        driver.findElement(By.xpath("(//*[name()='path'])[3]")).click();
+        driver.findElement(By.xpath("//*[@id=\"state\"]/div/div[1]")).click();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
+//        WebDriverWait wait = new WebDriverWait(driver);
+//        WebElement element = wait.until(
+//                ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class=' css-1uccc91-singleValue' and text()='NCR']"))
+//        );
+//        System.out.println(element.getText());
+
+        Thread.sleep(5000);
+
+        driver.findElement(By.xpath("//*[@class=' css-1uccc91-singleValue' and text()='NCR']")).click();
+
     }
 }

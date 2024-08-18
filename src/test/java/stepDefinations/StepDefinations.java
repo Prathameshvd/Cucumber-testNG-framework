@@ -29,7 +29,7 @@ public class StepDefinations {
     }
 
     @Given("user fill all the form and click on the submit button")
-    public void user_fill_all_the_form_and_click_on_the_submit_button() {
+    public void user_fill_all_the_form_and_click_on_the_submit_button() throws InterruptedException {
         stepDefinationImplementation.fillAndSubmitForm();
     }
 
