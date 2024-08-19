@@ -97,9 +97,11 @@ public class StepDefinationImplementation {
 //        );
 //        System.out.println(element.getText());
 
+//        Thread.sleep(5000);
+//
+//        driver.findElement(By.xpath("//*[@class=' css-1uccc91-singleValue' and text()='NCR']")).click();
+        PageForms.Submit.click();
+        driver.navigate().back();
         Thread.sleep(5000);
-
-        driver.findElement(By.xpath("//*[@class=' css-1uccc91-singleValue' and text()='NCR']")).click();
-
     }
 }

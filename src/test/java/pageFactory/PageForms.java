@@ -8,11 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 public class PageForms {
     public WebDriver driver;
 
-//    public PageInteractions(){} Commented as its working fine
-
     {
-        driver = PageBookStoreApplication.driver;
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(PageBookStoreApplication.driver, this);
     }
 
     @FindBy(xpath = "//div[normalize-space()='Forms']") public static WebElement FormsTab;
