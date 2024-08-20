@@ -43,16 +43,19 @@ public class StepDefinations {
     public void user_click_on_web_tables() {
         pageElements.clickOnOptionWebTables();
     }
-    @Given("user add a record in WebTable")
-    public void user_add_a_record_in_web_table() {
+
+    @Given("user add a record in WebTable and store Email value into {string}")
+    public void user_add_a_record_in_web_table_and_store_email_value_into(String string) {
         pageElements.clickOnbtnAdd();
-        pageElements.fillRegistrationForm();
+        pageElements.fillRegistrationForm(string);
     }
 
-    @Given("user search newly created record")
-    public void user_search_newly_created_record() {
-        // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
+    @Given("user search record for value {string}")
+    public void user_edit_searched_record(String string) {
+        pageElements.searchRecord(string);
     }
-
+    @Given("user store data into database for newly created record")
+    public void user_store_data_into_database_for_newly_created_record() {
+        System.out.println("Yet to implement");
+    }
 }

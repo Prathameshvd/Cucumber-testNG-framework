@@ -1,11 +1,8 @@
 package stepDefinationsImplementation;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pageFactory.PageBookStoreApplication;
 import pageFactory.PageForms;
-import pageFactory.PageInteractions;
 import supportingClasses.ConfigLoader;
 import supportingClasses.DriverSetup;
 import java.util.Map;
@@ -18,7 +15,6 @@ public class StepDefinationImplementation {
     public DriverSetup driverSetupMethods = new DriverSetup();
     public ConfigLoader configLoader = new ConfigLoader();
     public PageBookStoreApplication pageBookStoreApplication = new PageBookStoreApplication();
-    public PageInteractions pageInteractions = new PageInteractions();
     public PageForms pageForms = new PageForms();
     public JavascriptExecutor javascriptExecutor;
 
@@ -71,6 +67,12 @@ public class StepDefinationImplementation {
     public void clickOnPracticeFormOption() {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         PageForms.PracticeFormOption.click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        PageForms.PracticeFormOption.click();
     }
 
     public void fillAndSubmitForm() throws InterruptedException {
@@ -89,7 +91,7 @@ public class StepDefinationImplementation {
 //        PageForms.State.click();
 //        driver.findElement(By.xpath("(//*[name()='path'])[3]")).click();
         driver.findElement(By.xpath("//*[@id=\"state\"]/div/div[1]")).click();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
 
 //        WebDriverWait wait = new WebDriverWait(driver);
 //        WebElement element = wait.until(
@@ -101,7 +103,9 @@ public class StepDefinationImplementation {
 //
 //        driver.findElement(By.xpath("//*[@class=' css-1uccc91-singleValue' and text()='NCR']")).click();
         PageForms.Submit.click();
+        Thread.sleep(2000);
         driver.navigate().back();
-        Thread.sleep(5000);
+        driver.navigate().refresh();
+        Thread.sleep(2000);
     }
 }
