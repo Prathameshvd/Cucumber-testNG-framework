@@ -54,6 +54,12 @@ public class StepDefinations {
     public void user_edit_searched_record(String string) {
         pageElements.searchRecord(string);
     }
+
+    @Given("user edit searched record")
+    public void user_edit_searched_record() {
+        pageElements.editRecord();
+    }
+
     @Given("user store data into database for newly created record")
     public void user_store_data_into_database_for_newly_created_record() {
         System.out.println("Yet to implement");

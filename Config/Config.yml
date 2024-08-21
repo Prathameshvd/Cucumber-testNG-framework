@@ -12,6 +12,6 @@ AppURL : https://demoqa.com/login
 UserName : TestUser
 Password : TestUser@12345
 
-DBurl : jdbc:mysql://localhost:3306/nopcommerce
+DBurl : jdbc:mysql://localhost:3306/demoQA
 DBUserName : root
 DBPassword : root

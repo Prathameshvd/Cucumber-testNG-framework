@@ -1,17 +1,18 @@
 package pageFactory;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import supportingClasses.DatabaseMethods;
 import supportingClasses.DummyDatabase;
 
 
 public class PageElements {
     public DummyDatabase dummyDatabase = new DummyDatabase();
+    public DatabaseMethods databaseMethods = new DatabaseMethods();
     public JavascriptExecutor javascriptExecutor;
     public WebDriver driver;
 
@@ -80,7 +81,7 @@ public class PageElements {
 
     public String getRandomSalary()
     {
-        return RandomStringUtils.randomNumeric(6);
+        return RandomStringUtils.randomNumeric(3);
     }
 
     public void searchRecord(String Value) {
@@ -90,4 +91,13 @@ public class PageElements {
         btnEdit.click();
     }
 
+    public void editRecord() {
+        txtAge.sendKeys(getRandomAge());
+        txtSalary.sendKeys(getRandomSalary());
+        txtDepartment.sendKeys(getRandomString());
+        databaseMethods.saveRecord(txtFirstName.getAttribute("Value"),txtLastName.getAttribute("Value"),
+                txtEmail.getAttribute("Value"), Integer.parseInt(txtAge.getAttribute("Value")), Double.parseDouble(txtSalary.getAttribute("Value")),
+                txtDepartment.getAttribute("Value"));
+        btnSubmit.click();
+    }
 }
