@@ -12,3 +12,5 @@ And user add a record in WebTable and store Email value into "Email"
 And user search record for value "Email"
 And user edit searched record
 And user store data into database for newly created record
+And user fetch DB export for the newly created customer
+And user delete record for value "Email"

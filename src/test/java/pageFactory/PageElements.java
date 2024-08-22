@@ -32,8 +32,10 @@ public class PageElements {
     @FindBy(id = "salary") private WebElement txtSalary;
     @FindBy(id = "department") private WebElement txtDepartment;
     @FindBy(id = "submit") private WebElement btnSubmit;
+
     @FindBy(id = "searchBox") private WebElement searchBox;
     @FindBy(xpath = "(//*[name()='path'])[54]") private WebElement btnEdit;
+    @FindBy(xpath = "(//*[name()='path'])[55]") private WebElement btnDelete;
 
 
     public void clickOnTabElements()
@@ -71,7 +73,7 @@ public class PageElements {
     // Instance method to get random string and numeric value
     public String getRandomString()
     {
-        return RandomStringUtils.randomAlphabetic(5);
+        return RandomStringUtils.randomAlphabetic(9);
     }
 
     public String getRandomAge()
@@ -95,9 +97,19 @@ public class PageElements {
         txtAge.sendKeys(getRandomAge());
         txtSalary.sendKeys(getRandomSalary());
         txtDepartment.sendKeys(getRandomString());
-        databaseMethods.saveRecord(txtFirstName.getAttribute("Value"),txtLastName.getAttribute("Value"),
+    }
+
+    public void saveRecord()
+    {
+        databaseMethods.saveRecordIntoDatabase(txtFirstName.getAttribute("Value"),txtLastName.getAttribute("Value"),
                 txtEmail.getAttribute("Value"), Integer.parseInt(txtAge.getAttribute("Value")), Double.parseDouble(txtSalary.getAttribute("Value")),
                 txtDepartment.getAttribute("Value"));
         btnSubmit.click();
+    }
+
+    public void deleteRecord(String Value) {
+        searchBox.clear();
+        searchBox.sendKeys(dummyDatabase.getValueInDummyDB(Value));
+        btnDelete.click();
     }
 }

@@ -3,11 +3,16 @@ package stepDefinations;
 import io.cucumber.java.en.Given;
 import pageFactory.PageElements;
 import stepDefinationsImplementation.StepDefinationImplementation;
+import supportingClasses.DatabaseMethods;
+
+import java.sql.ResultSet;
 
 public class StepDefinations {
 
-    StepDefinationImplementation stepDefinationImplementation = new StepDefinationImplementation();
-    PageElements pageElements = new PageElements();
+    public StepDefinationImplementation stepDefinationImplementation = new StepDefinationImplementation();
+    public PageElements pageElements = new PageElements();
+    public DatabaseMethods databaseMethods = new DatabaseMethods();
+
     @Given("user navigate to the website DemoQA")
     public void user_navigate_to_the_website_demo_qa() {
         stepDefinationImplementation.openURL();
@@ -62,6 +67,21 @@ public class StepDefinations {
 
     @Given("user store data into database for newly created record")
     public void user_store_data_into_database_for_newly_created_record() {
+        pageElements.saveRecord();
+        System.out.println("Yet to implement");
+    }
+
+    @Given("user fetch DB export for the newly created customer")
+    public void user_fetch_DB_export_for_the_newly_created_customer() {
+        ResultSet rs = databaseMethods.getWebTableRecordDataFromDatabase();
+        databaseMethods.storeDataIntoExcelFile(rs);
+        System.out.println("Yet to implement");
+    }
+
+
+    @Given("user delete record for value {string}")
+    public void user_delete_record_for_value(String string) {
+        pageElements.deleteRecord(string);
         System.out.println("Yet to implement");
     }
 }
