@@ -1,6 +1,7 @@
 package stepDefinations;
 
 import io.cucumber.java.en.Given;
+import pageFactory.PageBookStoreApplication;
 import pageFactory.PageElements;
 import stepDefinationsImplementation.StepDefinationImplementation;
 import supportingClasses.DatabaseMethods;
@@ -10,18 +11,19 @@ import java.sql.ResultSet;
 public class StepDefinations {
 
     public StepDefinationImplementation stepDefinationImplementation = new StepDefinationImplementation();
+    public PageBookStoreApplication pageBookStoreApplication = new PageBookStoreApplication();
     public PageElements pageElements = new PageElements();
     public DatabaseMethods databaseMethods = new DatabaseMethods();
 
     @Given("user navigate to the website DemoQA")
     public void user_navigate_to_the_website_demo_qa() {
-        stepDefinationImplementation.openURL();
+        pageBookStoreApplication.openURL();
         System.out.println("User navigate to the website DemoQA - Completed");
     }
 
     @Given("user login to the website")
     public void user_login_to_the_website() {
-        stepDefinationImplementation.loginUser();
+        pageBookStoreApplication.loginUser();
         System.out.println("User login to website - Completed");
     }
 

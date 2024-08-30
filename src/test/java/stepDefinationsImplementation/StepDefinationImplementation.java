@@ -12,10 +12,7 @@ public class StepDefinationImplementation {
 
     //Instance variable
     public WebDriver driver;
-    public DriverSetup driverSetupMethods = new DriverSetup();
     public ConfigLoader configLoader = new ConfigLoader();
-    public PageBookStoreApplication pageBookStoreApplication = new PageBookStoreApplication();
-    public PageForms pageForms = new PageForms();
     public JavascriptExecutor javascriptExecutor;
 
     //PageFactory is declared inside constructor of the class to initiate all the elements inside this class
@@ -40,32 +37,11 @@ public class StepDefinationImplementation {
 //    @FindBy(xpath = "//div[@class='text-right col-md-5 col-sm-12']//button[@id='submit']")
 //    public WebElement Logout;
 
-    //Instance Methods
-    public void openURL() {
-        driver=PageBookStoreApplication.driver;
-        driver.manage().window().maximize();
-        driver.get(ConfigFileData.get("AppURL"));
-    }
-
-    public void loginUser() {
-        PageBookStoreApplication.UserName.sendKeys(ConfigFileData.get("UserName"));
-        PageBookStoreApplication.Password.sendKeys(ConfigFileData.get("Password"));
-        javascriptExecutor = (JavascriptExecutor) driver;
-        javascriptExecutor.executeScript("window.scrollBy(0,1000);");
-
-        PageBookStoreApplication.Login.click();
-    }
-
-    public void logoutUser() {
-//        Logout.click();
-    }
-
     public void clickOnFormsTab() {
         PageForms.FormsTab.click();
     }
 
     public void clickOnPracticeFormOption() {
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         PageForms.PracticeFormOption.click();
         try {
             Thread.sleep(2000);
@@ -78,6 +54,8 @@ public class StepDefinationImplementation {
     public void fillAndSubmitForm() throws InterruptedException {
         PageForms.FirstName.sendKeys("Rahul");
         PageForms.LastName.sendKeys("Desai");
+        driver=PageBookStoreApplication.driver;
+        javascriptExecutor = (JavascriptExecutor) driver;
         javascriptExecutor.executeScript("window.scrollBy(0,1000);");
         PageForms.GenderMale.click();
         PageForms.Email.sendKeys("RahulPatil@gmail.com");
