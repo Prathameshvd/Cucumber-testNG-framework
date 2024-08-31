@@ -61,7 +61,6 @@ public class DatabaseMethods {
         closeDbConnection();
     }
 
-
     //To get Data from Database
     public ResultSet getWebTableRecordDataFromDatabase() {
         createDbConnection();
@@ -118,5 +117,4 @@ public class DatabaseMethods {
             closeDbConnection();
         }
     }
-
 }

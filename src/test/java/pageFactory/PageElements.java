@@ -14,7 +14,6 @@ public class PageElements {
     public DummyDatabase dummyDatabase = new DummyDatabase();
     public DatabaseMethods databaseMethods = new DatabaseMethods();
     public JavascriptExecutor javascriptExecutor;
-    public WebDriver driver;
 
     {
         PageFactory.initElements(PageBookStoreApplication.driver, this);

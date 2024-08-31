@@ -3,15 +3,15 @@ package stepDefinations;
 import io.cucumber.java.en.Given;
 import pageFactory.PageBookStoreApplication;
 import pageFactory.PageElements;
-import stepDefinationsImplementation.StepDefinationImplementation;
+import pageFactory.PageForms;
 import supportingClasses.DatabaseMethods;
 
 import java.sql.ResultSet;
 
 public class StepDefinations {
 
-    public StepDefinationImplementation stepDefinationImplementation = new StepDefinationImplementation();
     public PageBookStoreApplication pageBookStoreApplication = new PageBookStoreApplication();
+    public PageForms pageForms = new PageForms();
     public PageElements pageElements = new PageElements();
     public DatabaseMethods databaseMethods = new DatabaseMethods();
 
@@ -29,17 +29,17 @@ public class StepDefinations {
 
     @Given("user click on Form")
     public void user_click_on_form() {
-        stepDefinationImplementation.clickOnFormsTab();
+        pageForms.clickOnFormsTab();
     }
 
     @Given("user click on Practice Form")
     public void user_click_on_practice_form() {
-        stepDefinationImplementation.clickOnPracticeFormOption();
+        pageForms.clickOnPracticeFormOption();
     }
 
     @Given("user fill all the form and click on the submit button")
     public void user_fill_all_the_form_and_click_on_the_submit_button() throws InterruptedException {
-        stepDefinationImplementation.fillAndSubmitForm();
+        pageForms.fillAndSubmitForm();
     }
 
     @Given("user click on Elements")

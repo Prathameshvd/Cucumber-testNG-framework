@@ -8,10 +8,10 @@ public class DummyDatabase {
     //Creating static so that all object will be able to access same data
     static Map<String,String> DummyDatabase = new HashMap<>();
 
-    public DummyDatabase()
-    {
-        DummyDatabase = new HashMap<>();
-    }
+//    public DummyDatabase()
+//    {
+//        DummyDatabase = new HashMap<>();
+//    }
 
     public void addValueInDummyDB(String Key, String Value)
     {
