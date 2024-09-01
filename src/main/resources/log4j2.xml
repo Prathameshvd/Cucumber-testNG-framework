@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <Properties>
+        <Property name="Path">./logs</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <RollingFile name="File" fileName="${Path}/latestTest.log" filePattern="${Path}/oldTest-%d{yyyy-mm-dd}.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <SizeBasedTriggeringPolicy size="5000"></SizeBasedTriggeringPolicy>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <!-- Configure the logger for the specific package -->
+        <Logger name="org.testng.internal.Utils" level="warn" additivity="false">
+            <AppenderRef ref="File"/>
+        </Logger>
+        <Root level="Info">
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+</Configuration>

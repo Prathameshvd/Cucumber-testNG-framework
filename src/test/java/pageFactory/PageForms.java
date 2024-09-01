@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class PageForms {
+public class PageForms extends ParentPage {
     public WebDriver driver;
     public JavascriptExecutor javascriptExecutor;
 
@@ -37,6 +37,7 @@ public class PageForms {
 
     public void clickOnFormsTab() {
         FormsTab.click();
+        logger.info("User clicked on Form Tab successfully");
     }
 
     public void clickOnPracticeFormOption() {
@@ -47,6 +48,7 @@ public class PageForms {
             throw new RuntimeException(e);
         }
         PracticeFormOption.click();
+        logger.info("User clicked on Form Option successfully");
     }
 
     public void fillAndSubmitForm() throws InterruptedException {
@@ -81,5 +83,6 @@ public class PageForms {
         driver.navigate().back();
         driver.navigate().refresh();
         Thread.sleep(2000);
+        logger.info("User filled Practice Form successfully");
     }
 }

@@ -10,7 +10,7 @@ import supportingClasses.DatabaseMethods;
 import supportingClasses.DummyDatabase;
 
 
-public class PageElements {
+public class PageElements extends ParentPage {
     public DummyDatabase dummyDatabase = new DummyDatabase();
     public DatabaseMethods databaseMethods = new DatabaseMethods();
     public JavascriptExecutor javascriptExecutor;
@@ -40,16 +40,19 @@ public class PageElements {
     public void clickOnTabElements()
     {
         TabElements.click();
+        logger.info("User clicked on Elements Tab successfully");
     }
 
     public void clickOnOptionWebTables()
     {
         OptionWebTables.click();
+        logger.info("User clicked on Web Table successfully");
     }
 
     public void clickOnbtnAdd()
     {
         btnAdd.click();
+        logger.info("User clicked on Add button successfully");
     }
 
     public void fillRegistrationForm(String Value)
@@ -67,6 +70,7 @@ public class PageElements {
         txtSalary.sendKeys(getRandomSalary());
         txtDepartment.sendKeys(getRandomString());
         btnSubmit.click();
+        logger.info("User filled Registration Form successfully");
     }
 
     // Instance method to get random string and numeric value
@@ -90,12 +94,14 @@ public class PageElements {
         javascriptExecutor = (JavascriptExecutor) PageBookStoreApplication.driver;
         javascriptExecutor.executeScript("window.scrollBy(0,100);");
         btnEdit.click();
+        logger.info("User search record successfully");
     }
 
     public void editRecord() {
-        txtAge.sendKeys(getRandomAge());
-        txtSalary.sendKeys(getRandomSalary());
-        txtDepartment.sendKeys(getRandomString());
+        txtAge.clear(); txtAge.sendKeys(getRandomAge());
+        txtSalary.clear(); txtSalary.sendKeys(getRandomSalary());
+        txtDepartment.clear(); txtDepartment.sendKeys(getRandomString());
+        logger.info("User edited record successfully");
     }
 
     public void saveRecord()
@@ -104,11 +110,13 @@ public class PageElements {
                 txtEmail.getAttribute("Value"), Integer.parseInt(txtAge.getAttribute("Value")), Double.parseDouble(txtSalary.getAttribute("Value")),
                 txtDepartment.getAttribute("Value"));
         btnSubmit.click();
+        logger.info("User save record successfully");
     }
 
     public void deleteRecord(String Value) {
         searchBox.clear();
         searchBox.sendKeys(dummyDatabase.getValueInDummyDB(Value));
         btnDelete.click();
+        logger.info("User deleted record successfully");
     }
 }

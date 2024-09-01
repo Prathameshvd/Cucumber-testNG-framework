@@ -1,5 +1,7 @@
 package pageFactory;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +12,7 @@ import supportingClasses.ScreenshotAndCreateWordFile;
 
 import java.util.Map;
 
-public class PageBookStoreApplication {
+public class PageBookStoreApplication extends ParentPage {
 
     //Instance variable
     public static WebDriver driver;
@@ -19,6 +21,7 @@ public class PageBookStoreApplication {
     //To load ConfigFileData from the Config YAML file
     public ConfigLoader configLoader = new ConfigLoader();
     Map<String, String> ConfigFileData = configLoader.configReader();
+
 
     //PageFactory is declared inside constructor of the class to initiate all the elements inside this class
     public PageBookStoreApplication() {
@@ -39,6 +42,7 @@ public class PageBookStoreApplication {
     public void openURL() {
         driver.manage().window().maximize();
         driver.get(ConfigFileData.get("AppURL"));
+        logger.info("App open successfully");
     }
 
     public void loginUser() {
@@ -47,5 +51,6 @@ public class PageBookStoreApplication {
         javascriptExecutor = (JavascriptExecutor) driver;
         javascriptExecutor.executeScript("window.scrollBy(0,1000);");
         Login.click();
+        logger.info("User login successfully");
     }
 }
