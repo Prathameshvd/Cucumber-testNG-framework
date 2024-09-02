@@ -10,7 +10,7 @@ import supportingClasses.DatabaseMethods;
 import supportingClasses.DummyDatabase;
 
 
-public class PageElements extends ParentPage {
+public class PageElementsWebTables extends ParentPage {
     public DummyDatabase dummyDatabase = new DummyDatabase();
     public DatabaseMethods databaseMethods = new DatabaseMethods();
     public JavascriptExecutor javascriptExecutor;
