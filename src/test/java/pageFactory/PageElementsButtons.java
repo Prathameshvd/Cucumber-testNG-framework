@@ -1,17 +1,13 @@
 package pageFactory;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.asserts.SoftAssert;
 
 public class PageElementsButtons extends ParentPage {
 
     public Actions actions;
-    public SoftAssert softAssert = new SoftAssert();
 
     {
         PageFactory.initElements(PageBookStoreApplication.driver, this);
@@ -29,20 +25,9 @@ public class PageElementsButtons extends ParentPage {
     @FindBy(id = "rightClickMessage") private WebElement txtRightClickMe;
     @FindBy(id = "dynamicClickMessage") private WebElement txtClickMe;
 
-
-    public void clickOnTabElements()
-    {
-        tabElements.click();
-        logger.info("User clicked on Elements Tab successfully");
-    }
-
     public void clickOnOptionButtons()
     {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        waitUntilElementIsInteractable(optionButtons);
         optionButtons.click();
         logger.info("User clicked on Buttons options successfully");
     }
@@ -50,6 +35,7 @@ public class PageElementsButtons extends ParentPage {
     public void clickOnbtnDoubleClickMe()
     {
         javascriptExecutor.executeScript("window.scrollBy(0,500);");
+        waitUntilElementIsInteractable(btnDoubleClickMe);
         actions.doubleClick(btnDoubleClickMe).perform();
         softAssert.assertEquals(txtDoubleClickMe.getText(), "You have done a double click", "First assertion Successfully !");
         logger.info("User clicked on DoubleClickMe button successfully");
@@ -65,17 +51,9 @@ public class PageElementsButtons extends ParentPage {
 
     public void clickOnbtnClickMe()
     {
-        actions.contextClick(btnClickMe).perform();
         // Execute JavaScript to perform a left-click
         javascriptExecutor.executeScript("var event = new MouseEvent('click', {bubbles: true, cancelable: true, view: window}); arguments[0].dispatchEvent(event);", btnClickMe);
-        btnClickMe.click();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         //Assertion has to be implemented
-        System.out.println("ABCD" + txtClickMe.getText());
         softAssert.assertEquals(txtClickMe.getText(), "You have done a dynamic click", "Third assertion Successfully !");
         softAssert.assertAll();
         logger.info("User clicked on ClickMe button successfully");

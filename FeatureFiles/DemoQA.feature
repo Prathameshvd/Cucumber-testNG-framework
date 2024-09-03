@@ -24,4 +24,4 @@ And user click on Elements
 And user click on Buttons
 And verify Double Click Me button is working
 And verify Right Click Me button is working
-#And verify Click Me button is working
+And verify Click Me button is working

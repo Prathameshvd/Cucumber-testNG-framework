@@ -1,0 +1,26 @@
+14:01:26.330 [main] ERROR pageFactory.PageElementsButtons - The expected element is not interactable
+14:01:28.362 [main] ERROR pageFactory.PageElementsButtons - The expected element is not interactable
+14:01:30.389 [main] ERROR pageFactory.PageElementsButtons - The expected element is not interactable
+20:54:26.696 [main] INFO  pageFactory.PageBookStoreApplication - App open successfully
+20:54:57.320 [main] ERROR pageFactory.PageElementsButtons - The expected element is not interactable
+20:54:59.384 [main] ERROR pageFactory.PageElementsButtons - The expected element is not interactable
+20:56:02.737 [main] INFO  pageFactory.PageBookStoreApplication - App open successfully
+20:56:04.582 [main] INFO  pageFactory.PageElementsWebTables - User clicked on Elements Tab successfully
+20:56:06.086 [main] INFO  pageFactory.PageElementsButtons - User clicked on Buttons options successfully
+20:56:07.959 [main] INFO  pageFactory.PageElementsButtons - User clicked on DoubleClickMe button successfully
+20:56:09.412 [main] INFO  pageFactory.PageElementsButtons - User clicked on RightClick button successfully
+20:56:10.788 [main] INFO  pageFactory.PageElementsButtons - User clicked on ClickMe button successfully
+20:58:22.246 [main] INFO  pageFactory.PageBookStoreApplication - App open successfully
+20:58:24.579 [main] INFO  pageFactory.PageBookStoreApplication - User login successfully
+20:58:26.317 [main] INFO  pageFactory.PageForms - User clicked on Form Tab successfully
+20:58:29.871 [main] INFO  pageFactory.PageForms - User clicked on Form Option successfully
+20:58:40.107 [main] INFO  pageFactory.PageForms - User filled Practice Form successfully
+20:58:41.651 [main] INFO  pageFactory.PageElementsWebTables - User clicked on Elements Tab successfully
+20:58:43.274 [main] INFO  pageFactory.PageElementsWebTables - User clicked on Web Table successfully
+20:58:44.876 [main] INFO  pageFactory.PageElementsWebTables - User clicked on Add button successfully
+20:58:46.144 [main] INFO  pageFactory.PageElementsWebTables - User filled Registration Form successfully
+20:58:48.147 [main] INFO  pageFactory.PageElementsWebTables - User search record successfully
+20:58:50.166 [main] INFO  pageFactory.PageElementsWebTables - User edited record successfully
+20:58:52.717 [main] INFO  pageFactory.PageElementsWebTables - User save record successfully
+20:58:54.594 [main] WARN  org.apache.poi.xssf.usermodel.XSSFWorkbook - Sheet 'WebTableRecord_NzeXILLswTfRtbkraZ@gmail.com' will be added with a trimmed name 'WebTableRecord_NzeXILLswTfRtbkr' for MS Excel compliance.
+20:58:57.126 [main] INFO  pageFactory.PageElementsWebTables - User deleted record successfully
