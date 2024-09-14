@@ -24,3 +24,17 @@
 20:58:52.717 [main] INFO  pageFactory.PageElementsWebTables - User save record successfully
 20:58:54.594 [main] WARN  org.apache.poi.xssf.usermodel.XSSFWorkbook - Sheet 'WebTableRecord_NzeXILLswTfRtbkraZ@gmail.com' will be added with a trimmed name 'WebTableRecord_NzeXILLswTfRtbkr' for MS Excel compliance.
 20:58:57.126 [main] INFO  pageFactory.PageElementsWebTables - User deleted record successfully
+16:30:36.074 [main] INFO  pageFactory.PageBookStoreApplication - App open successfully
+16:30:38.874 [main] INFO  pageFactory.PageBookStoreApplication - User login successfully
+16:30:40.952 [main] INFO  pageFactory.PageForms - User clicked on Form Tab successfully
+16:30:44.837 [main] INFO  pageFactory.PageForms - User clicked on Form Option successfully
+16:30:52.456 [main] INFO  pageFactory.PageForms - User filled Practice Form successfully
+16:30:53.940 [main] INFO  pageFactory.PageElementsWebTables - User clicked on Elements Tab successfully
+16:30:55.567 [main] INFO  pageFactory.PageElementsWebTables - User clicked on Web Table successfully
+16:30:57.097 [main] INFO  pageFactory.PageElementsWebTables - User clicked on Add button successfully
+16:30:58.573 [main] INFO  pageFactory.PageElementsWebTables - User filled Registration Form successfully
+16:31:00.654 [main] INFO  pageFactory.PageElementsWebTables - User search record successfully
+16:31:02.692 [main] INFO  pageFactory.PageElementsWebTables - User edited record successfully
+16:31:05.487 [main] INFO  pageFactory.PageElementsWebTables - User save record successfully
+16:31:07.416 [main] WARN  org.apache.poi.xssf.usermodel.XSSFWorkbook - Sheet 'WebTableRecord_pqEsbsIBrqAgokcJyo@gmail.com' will be added with a trimmed name 'WebTableRecord_pqEsbsIBrqAgokcJ' for MS Excel compliance.
+16:31:09.751 [main] INFO  pageFactory.PageElementsWebTables - User deleted record successfully

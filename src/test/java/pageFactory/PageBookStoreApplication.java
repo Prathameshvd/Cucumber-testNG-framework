@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import supportingClasses.ConfigLoader;
+import supportingClasses.PasswordDecryption;
 import supportingClasses.ScreenshotAndCreateWordFile;
-
 import java.util.Map;
 
 public class PageBookStoreApplication extends ParentPage {
@@ -15,6 +15,7 @@ public class PageBookStoreApplication extends ParentPage {
     //Instance variable
     public static WebDriver driver;
     public JavascriptExecutor javascriptExecutor;
+    public PasswordDecryption passwordDecryption = new PasswordDecryption();
 
     //To load ConfigFileData from the Config YAML file
     public ConfigLoader configLoader = new ConfigLoader();
@@ -46,7 +47,7 @@ public class PageBookStoreApplication extends ParentPage {
     public void loginUser() {
         waitUntilElementIsInteractable(UserName);
         UserName.sendKeys(ConfigFileData.get("UserName"));
-        Password.sendKeys(ConfigFileData.get("Password"));
+        Password.sendKeys(passwordDecryption.getAppDecryptedPassword());
         javascriptExecutor = (JavascriptExecutor) driver;
         javascriptExecutor.executeScript("window.scrollBy(0,1000);");
         Login.click();

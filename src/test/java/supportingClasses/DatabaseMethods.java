@@ -4,7 +4,6 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,6 +16,7 @@ public class DatabaseMethods {
     public Connection con;
     public ConfigLoader configLoader = new ConfigLoader();
     public DummyDatabase dummyDatabase = new DummyDatabase();
+    public PasswordDecryption passwordDecryption = new PasswordDecryption();
 
     //To store Config.yml file data into the map
     Map<String, String> ConfigFileData = configLoader.configReader();
@@ -24,7 +24,7 @@ public class DatabaseMethods {
     //To Db Connection
     public void createDbConnection() {
         try {
-            con= DriverManager.getConnection(ConfigFileData.get("DBurl"), ConfigFileData.get("DBUserName"), ConfigFileData.get("DBPassword"));
+            con= DriverManager.getConnection(ConfigFileData.get("DBurl"), ConfigFileData.get("DBUserName"), passwordDecryption.getDatabaseDecryptedPassword());
             String temp = con==null ? "JDBC Connection unsuccessful !" : "JDBC Connection Successfully !";
             System.out.println(temp);
         } catch (SQLException e) {

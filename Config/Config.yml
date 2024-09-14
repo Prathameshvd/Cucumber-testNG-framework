@@ -10,8 +10,8 @@ GridURL : http://localhost:4444/wd/hub
 
 AppURL : https://demoqa.com/login
 UserName : TestUser
-Password : TestUser@12345
+Password : xlbbYx/FE5e1C54YwhbwoA==
 
 DBurl : jdbc:mysql://localhost:3306/demoQA
 DBUserName : root
-DBPassword : root
+DBPassword : GXNgb6g6uG8fhaemAp5ydg==
