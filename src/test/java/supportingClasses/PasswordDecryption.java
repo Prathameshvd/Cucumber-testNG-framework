@@ -1,5 +1,7 @@
 package supportingClasses;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import src.PasswordMethods;
 
 import javax.crypto.BadPaddingException;
@@ -16,13 +18,18 @@ public class PasswordDecryption {
     Map<String, String> ConfigFileData = configLoader.configReader();
 
     PasswordMethods passwordMethods = new PasswordMethods();
-    String AppDecryptedPassword;
-    String DatabaseDecryptedPassword;
+    public Logger logger = LogManager.getLogger(this.getClass());
+    String AppDecryptedPassword=null;
+    String DatabaseDecryptedPassword=null;
 
     //To get AppDecryptedPassword
     public String getAppDecryptedPassword() {
         try {
             AppDecryptedPassword = passwordMethods.getDecryptedPassword(ConfigFileData.get("Password"), System.getProperty("key"));
+            if (AppDecryptedPassword==null)
+                logger.info("AppDecryptedPassword value is null");
+            else
+                logger.info("getAppDecryptedPassword() - Successful");
         } catch (NoSuchPaddingException | NoSuchAlgorithmException | IllegalBlockSizeException | BadPaddingException |
                  InvalidKeyException e) {
             throw new RuntimeException(e);
@@ -34,6 +41,10 @@ public class PasswordDecryption {
     public String getDatabaseDecryptedPassword() {
         try {
             DatabaseDecryptedPassword = passwordMethods.getDecryptedPassword(ConfigFileData.get("DBPassword"), System.getProperty("key"));
+            if (DatabaseDecryptedPassword==null)
+                logger.info("DatabaseDecryptedPassword value is null");
+            else
+                logger.info("DatabaseDecryptedPassword() - Successful");
         } catch (NoSuchPaddingException | NoSuchAlgorithmException | IllegalBlockSizeException | BadPaddingException |
                  InvalidKeyException e) {
             throw new RuntimeException(e);

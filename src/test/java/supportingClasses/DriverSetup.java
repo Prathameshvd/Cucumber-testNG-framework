@@ -1,6 +1,8 @@
 package supportingClasses;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,6 +18,7 @@ import java.util.Map;
 public class DriverSetup {
     public WebDriver driver;
     ConfigLoader configLoader = new ConfigLoader();
+    public Logger logger = LogManager.getLogger(this.getClass());
 
     //To store Config.yml file data into the map
     Map<String, String> ConfigFileData = configLoader.configReader();
@@ -57,6 +60,7 @@ public class DriverSetup {
         else if (ConfigFileData.get("Browser").equalsIgnoreCase("Edge") && ConfigFileData.get("Grid").equalsIgnoreCase("Yes")){
             driver=new EdgeDriver();
         }
+        logger.info("Driver Setup is done");
         return driver;
     }
 }

@@ -1,5 +1,7 @@
 package supportingClasses;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -17,6 +19,7 @@ public class DatabaseMethods {
     public ConfigLoader configLoader = new ConfigLoader();
     public DummyDatabase dummyDatabase = new DummyDatabase();
     public PasswordDecryption passwordDecryption = new PasswordDecryption();
+    public Logger logger = LogManager.getLogger(this.getClass());
 
     //To store Config.yml file data into the map
     Map<String, String> ConfigFileData = configLoader.configReader();
@@ -26,7 +29,10 @@ public class DatabaseMethods {
         try {
             con= DriverManager.getConnection(ConfigFileData.get("DBurl"), ConfigFileData.get("DBUserName"), passwordDecryption.getDatabaseDecryptedPassword());
             String temp = con==null ? "JDBC Connection unsuccessful !" : "JDBC Connection Successfully !";
-            System.out.println(temp);
+            if (con==null)
+                logger.error("JDBC Connection unsuccessful !");
+            else
+                logger.info("JDBC Connection Successfully !");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -37,6 +43,7 @@ public class DatabaseMethods {
         try {
             con.close();
             System.out.println("JDBC Connection Closed Successfully");
+            logger.info("JDBC Connection Closed Successfully");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -55,6 +62,7 @@ public class DatabaseMethods {
             preparedStatement4.setString(6, Department);
             preparedStatement4.execute();
             System.out.println("WebTable records details stored successfully");
+            logger.info("Data inserted into database successfully");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -69,6 +77,7 @@ public class DatabaseMethods {
             preparedStatement.setString(1,dummyDatabase.getValueInDummyDB("Email"));
             ResultSet rs= preparedStatement.executeQuery();
             rs.next();
+            logger.info("Data fetched from database successfully");
             return rs;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -108,7 +117,7 @@ public class DatabaseMethods {
             FileOutputStream fileOutputStream=new FileOutputStream(new File("D:/LightWaitSW/IntelliJ IDEA/IdeaProjects/CucumberWithTestNG/Evidences/DB_Export_ExcelFile/WebTable.xlsx"));
             workbook.write(fileOutputStream);
             workbook.close();
-            System.out.println();
+            logger.info("Data stored into excel successfully");
             System.out.println("Data stored into excel file successfully");
         } catch (IOException | SQLException e) {
             throw new RuntimeException(e);
